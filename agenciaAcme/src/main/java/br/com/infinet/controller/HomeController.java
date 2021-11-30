@@ -44,7 +44,7 @@ public class HomeController {
 		HttpEntity<Pacote> httpEntity = new HttpEntity<>(pacote);
 		//URI postForLocation = restTemplate.postForLocation("http://localhost:8080/pacote/", httpEntity);
 		ResponseEntity<Pacote> exchange = restTemplate.exchange("http://localhost:8080/pacote/", HttpMethod.POST, httpEntity, Pacote.class);
-		System.out.println(exchange);
+		System.out.println(exchange.getStatusCode());
 		
 		
 		
