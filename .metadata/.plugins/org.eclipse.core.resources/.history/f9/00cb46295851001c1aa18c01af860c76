@@ -1,0 +1,12 @@
+package br.com.infinet.model;
+
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
+public class Pacote {
+	private Long id;
+	private String destino;
+	private Double preco;
+}

@@ -1,0 +1,9 @@
+package br.com.infinet.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import br.com.infinet.model.Pacote;
+
+public interface PacotesRepository extends CrudRepository<Pacote, Long> {
+
+}

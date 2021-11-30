@@ -1,0 +1,7 @@
+package br.com.infinet.model;
+
+public class Pacote {
+	private Long id;
+	private String destino;
+	private Double preco;
+}
