@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,25 +20,29 @@ import br.com.infinet.service.PacoteService;
 @RequestMapping("/pacote")
 public class PacoteController {
 	
+	@Value("${server.id}")
+    private String serverId;
 	@Autowired
 	PacoteService pacoteService;
 	@GetMapping
 	public ResponseEntity < ? > getAll(){
-	 	List<Pacote> allPackages = this.pacoteService.getAll();
-	 	if(allPackages.isEmpty()) return ResponseEntity.noContent().build();
-	 	return ResponseEntity.ok(allPackages);
+		System.out.println("server id: " + serverId);
+		return ResponseEntity.ok().build();
+	
 		
 	}
 	@GetMapping("/{id}")
 	public ResponseEntity<? > getById(@PathVariable Long id){
-		Optional<Pacote> byId = this.pacoteService.getById(id);
-		if(byId.isEmpty()) return ResponseEntity.noContent().build();
-		return ResponseEntity.ok(byId.get());
+		System.out.println("server id: " + serverId);
+		return ResponseEntity.ok().build();
+
+	
 	}
 	
 	@PostMapping
 	public ResponseEntity<?> save(@RequestBody Pacote pacote) {
-		this.pacoteService.save(pacote);
+		System.out.println("server id: " + serverId);
+
 		return ResponseEntity.ok().build();
 	}
 }
